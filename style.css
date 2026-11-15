@@ -1,0 +1,104 @@
+/* Clinote — pages publiques (GitHub Pages). Couleurs de la charte Look de l'app. */
+:root {
+  --primary: #0A73C7;
+  --primary-strong: #085C9F;
+  --background: #F4F6F9;
+  --surface: #FFFFFF;
+  --separator: #D9DEE5;
+  --text: #1C2430;
+  --text-secondary: #5B6675;
+  --success: #1E8E4E;
+  --confirm-bg: #D8F3E2;
+  --radius: 16px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #4DA3F5;
+    --primary-strong: #7BBCF8;
+    --background: #0E1116;
+    --surface: #1A1F27;
+    --separator: #2C333D;
+    --text: #F2F4F7;
+    --text-secondary: #A7B0BC;
+    --success: #4CC983;
+    --confirm-bg: #1F3D2B;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+a { color: var(--primary); }
+a:hover { color: var(--primary-strong); }
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+/* En-tête */
+header.site {
+  background: var(--surface);
+  border-bottom: 1px solid var(--separator);
+}
+header.site .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; min-height: 64px;
+}
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-weight: 700; font-size: 19px; }
+.brand svg { width: 32px; height: 32px; flex: none; }
+.lang-switch { display: flex; gap: 4px; background: var(--background); border-radius: 10px; padding: 3px; }
+.lang-switch button {
+  border: 0; background: transparent; color: var(--text-secondary);
+  font: inherit; font-size: 14px; font-weight: 600; padding: 4px 12px; border-radius: 8px; cursor: pointer;
+}
+.lang-switch button[aria-pressed="true"] { background: var(--surface); color: var(--text); box-shadow: 0 1px 2px rgba(16,24,40,.12); }
+
+/* Contenu */
+main.wrap { padding-top: 32px; padding-bottom: 48px; }
+h1 { font-size: 32px; line-height: 1.2; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 21px; margin: 36px 0 8px; }
+h3 { font-size: 17px; margin: 24px 0 4px; }
+p, li { color: var(--text); }
+.muted { color: var(--text-secondary); font-size: 15px; }
+.card {
+  background: var(--surface); border: 1px solid var(--separator);
+  border-radius: var(--radius); padding: 20px 22px; margin: 20px 0;
+}
+.summary { background: var(--confirm-bg); border: 0; }
+.summary li { margin: 4px 0; }
+ul { padding-left: 22px; }
+details { background: var(--surface); border: 1px solid var(--separator); border-radius: 12px; padding: 12px 16px; margin: 10px 0; }
+details summary { cursor: pointer; font-weight: 600; }
+details[open] summary { margin-bottom: 6px; }
+
+/* Accueil */
+.hero { padding: 24px 0 8px; }
+.hero h1 { font-size: 38px; }
+.hero p { font-size: 19px; color: var(--text-secondary); max-width: 34em; }
+.badge {
+  display: inline-block; margin-top: 12px; padding: 12px 20px; border-radius: 12px;
+  background: var(--primary); color: #fff; font-weight: 600; text-decoration: none;
+}
+.badge:hover { color: #fff; background: var(--primary-strong); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin: 24px 0; }
+.grid .card { margin: 0; }
+.grid h3 { margin-top: 0; }
+
+/* Pied de page */
+footer.site { border-top: 1px solid var(--separator); padding: 24px 0 40px; }
+footer.site nav { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 8px; }
+footer.site a { color: var(--text-secondary); text-decoration: none; font-size: 15px; }
+footer.site a:hover { color: var(--text); }
+
+/* Deux langues : sans JavaScript les deux s'affichent ; avec, seulement la langue choisie */
+html[data-lang="fr"] .l10n[lang="en"],
+html[data-lang="en"] .l10n[lang="fr"] { display: none; }
+
+@media (max-width: 520px) {
+  h1 { font-size: 27px; }
+  .hero h1 { font-size: 30px; }
+  main.wrap { padding-top: 24px; }
+}
